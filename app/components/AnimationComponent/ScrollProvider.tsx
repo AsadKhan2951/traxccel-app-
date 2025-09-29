@@ -7,6 +7,21 @@ import Lenis from '@studio-freight/lenis';
 gsap.registerPlugin(ScrollTrigger);
 
 export default function ScrollProvider() {
+  // In your component, only use Lenis on the client-side
+  // useEffect(() => {
+  //   if (typeof window !== "undefined") {
+  //     const Lenis = require("lenis"); // Dynamically import Lenis
+  //     const lenis = new Lenis();
+
+  //     function raf() {
+  //       lenis.raf();
+  //       requestAnimationFrame(raf);
+  //     }
+
+  //     requestAnimationFrame(raf);
+  //   }
+  // }, []);
+
   useEffect(() => {
     const lenis = new Lenis({ smoothWheel: true, lerp: 0.12 });
 

@@ -21,7 +21,7 @@ import keyUpdateImg from "./assets/Images/key-update-img.png";
 import SectionReveal from "./components/AnimationComponent/SectionReveal";
 import BlurText from "./components/AnimationComponent/BlurText";
 import BlurSlideBottomText from "./components/AnimationComponent/BlurSlideBottomText";
-
+import dynamic from 'next/dynamic';
 
 const testimonials = [
   { name: 'Janak Bhanushali', role: 'Founder & CEO', quote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec laoreet felis quis mi elementum auctor. Proin id nunc id ipsum luctus hendrerit a sed ipsum. Suspendisse neque tellus', photo: testimonialProfile },
