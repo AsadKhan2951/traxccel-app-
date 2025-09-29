@@ -23,7 +23,7 @@ body {
   background: radial-gradient(124.01% 584.99% at 114.09% 49.7%, #020608 0%, #1E4D6A 52.4%, #020608 100%);
   color: var(--foreground);
   font-family: var(--font-montserrat), ui-sans-serif, system-ui;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 /* Blur Effect Animation Start  */
@@ -272,7 +272,7 @@ body {
 .service-polygon-bg{position: absolute;right: max(3vw, 40px);top: 12%;width: clamp(720px, 58vw, 1100px);height: auto;opacity: .34;filter: blur(.25px);mix-blend-mode: screen;pointer-events: none;z-index: 0; transform: rotate(10deg);}
 .guiding-principles .background{pointer-events: none;position: absolute;inset: 0;display: grid;place-items: center;z-index: 0;}
 .guiding-principles .background svg path.gp-base{stroke: #fff3;stroke-width: 1;fill: none;filter: drop-shadow(0 0 10px rgba(180, 220, 255, .85));}
-.guiding-principles .background svg path.gp-shine{--L: var(--dash-len, 1200);--seg: 160;--gap: calc(var(--L) - var(--seg));stroke: rgb(255 255 255);stroke-width: 1;stroke-linecap: round;fill: none;filter: blur(4px);stroke-dasharray: var(--seg) var(--gap);animation: gpRunner 4.8s linear infinite;}
+.guiding-principles .background svg path:first-child{--L: var(--dash-len, 1200);--seg: 160;--gap: calc(var(--L) - var(--seg));stroke: rgb(255 255 255);stroke-width: 1;stroke-linecap: round;fill: none;filter: blur(4px);stroke-dasharray: var(--seg) var(--gap);animation: gpRunner 4.8s linear infinite;}
 @keyframes gpRunner{
   from { stroke-dashoffset: 0; }
   to   { stroke-dashoffset: var(--L); } 
