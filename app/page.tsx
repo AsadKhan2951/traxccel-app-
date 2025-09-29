@@ -1,103 +1,368 @@
-import Image from "next/image";
+import Image from 'next/image'
+import ExpandingSlider from './components/AnimationComponent/ExpandingSlider';
+import PinnedTestimonials from "./components/AnimationComponent/TestimonialSlider";
+import ServiceSection, { ServiceItem } from './components/AnimationComponent/ServiceSection';
+import IndustriesSection from './components/AnimationComponent/IndustriesSection';
+import nvidaLogo from './assets/Images/nvidia-logo.png';
+import azureLogo from './assets/Images/azure-logo.png';
+import informaticLogo from './assets/Images/informatic-logo.png';
+import pathLogo from './assets/Images/path-logo.png';
+import certificationLogo from './assets/Images/certification-logo.png';
+import testimonialProfile from './assets/Images/testimonial-profile.png';
+import Line1 from "./assets/Images/generated-svg-image.svg";
+import servicePolygonImg from "./assets/Images/service-polygon.png";
+import soluCardRightImg from "./assets/Images/solution-card-right-img.png";
+import soluCardImg1 from "./assets/Images/solution-box-img-1.png";
+import soluCardImg2 from "./assets/Images/solution-box-img-2.png";
+import soluCardImg3 from "./assets/Images/solution-box-img-3.png";
+import soluCardsubImg3 from "./assets/Images/solution-box-sub-img-3.png";
+import PolygonLogo from "./assets/Images/polygon-card.svg";
+import keyUpdateImg from "./assets/Images/key-update-img.png";
+import SectionReveal from "./components/AnimationComponent/SectionReveal";
+import BlurText from "./components/AnimationComponent/BlurText";
+import BlurSlideBottomText from "./components/AnimationComponent/BlurSlideBottomText";
 
-export default function Home() {
+
+const testimonials = [
+  { name: 'Janak Bhanushali', role: 'Founder & CEO', quote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec laoreet felis quis mi elementum auctor. Proin id nunc id ipsum luctus hendrerit a sed ipsum. Suspendisse neque tellus', photo: testimonialProfile },
+  { name: 'Sara Malik', role: 'Product Lead', quote: 'ultrices in tempor quis, aliquet quis est. In hac habitasse platea dictumst. Cras mattis, lectus vel porta consectetur, sem lacus tincidunt elit, eget varius tellus libero eget ligula', photo: testimonialProfile },
+  { name: 'Ibrahim Khan', role: 'Marketing Head', quote: 'Proin molestie quam id placerat auctor. Aliquam erat volutpat. Mauris imperdiet, dolor non dignissim malesuada, quam dolor condimentum ex, id dignissim eros nisi et nulla.', photo: testimonialProfile },
+];
+const services: ServiceItem[] = [
+  { title: 'Strategy',      description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.' },
+  { title: 'Platform',      description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.' },
+  { title: 'Product',       description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.' },
+  { title: 'Organization',  description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.' },
+  { title: 'Operate',       description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.' },
+];
+
+export default function HomePage() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <>
+      {/* Hero */}
+      <section className="main-hero">
+        <div className="container">
+          <div className="column">
+            <BlurText as="h1" split="words" stagger={40} blurAmount={14} yOffset={18} duration={800}>
+              <div>We envision modern</div>
+              <div>data+AI value chain for</div>
+              <div>operational efficiencies</div>
+            </BlurText>
+            <a href="/" className="main-hero-btn">
+              <div className="dot"></div> Start Your Journey
+            </a>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        <div className="sub-container">
+          <ul className="trusted-box">
+            <li>
+              <BlurSlideBottomText><p>Trusted Partnerships Certifications</p></BlurSlideBottomText>
+              <div className="under-line"></div>
+              <ul className="partnership-box">
+                  <li>
+                    <Image
+                      src={nvidaLogo}
+                      className="trusted-logo"
+                      alt={''}
+                    />
+                  </li>
+                  <li>
+                    <Image
+                      src={azureLogo}
+                      className="trusted-logo"
+                      alt={''}
+                    />
+                  </li>
+                  <li>
+                    <Image
+                      src={informaticLogo}
+                      className="trusted-logo"
+                      alt={''}
+                    />
+                  </li>
+                  <li>
+                    <Image
+                      src={pathLogo}
+                      className="trusted-logo"
+                      alt={''}
+                    />
+                  </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div className="bottom-container">
+          <BlurText as="h1" split="words" stagger={40} blurAmount={14} yOffset={18} duration={800}>key highlights about us</BlurText>
+          <BlurText as="p" split="chars" stagger={12} blurAmount={10} yOffset={5} duration={2000}>We aspire to be the leading client-centric, people-first data, analytics, and cloud service provider</BlurText>
+        </div>
+      </section>
+
+      {/* Accomplishments & Expertise */}
+      <SectionReveal>
+      <section className="accomplishment-sec">
+        <div className="container">
+          <BlurText as="h1" split="words" stagger={40} blurAmount={14} yOffset={18} duration={800}>Accomplishments & Expertise</BlurText>
+          <BlurText as="p" split="chars" stagger={12} blurAmount={10} yOffset={5} duration={2000} className="para">Product-enabled delivery model expedites your project lifecycle with a core focus on efficiency and quality</BlurText>
+          <ul>
+            <li>
+              <span>50%</span>
+              <p>Lorem Ipsum</p>
+            </li>
+            <li>
+              <span>50%</span>
+              <p>Lorem Ipsum</p>
+            </li>
+            <li>
+              <span>50%</span>
+              <p>Lorem Ipsum</p>
+            </li>
+            <li>
+              <span>50%</span>
+              <p>Lorem Ipsum</p>
+            </li>
+          </ul>
+        </div>
+         {/* ... Carousel Slider ... */}
+           <ExpandingSlider />
+         {/* ...Carousel Slider... */}
+         
+         {/* <PinnedTestimonials
+          certificationLogo={certificationLogo}
+          testimonials={testimonials}
+        />; */}
+
+      </section>
+      </SectionReveal>
+
+      {/* Strategy, Implement, Operate */}
+      <ServiceSection
+        heading="Services"
+        intro="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+        stickyTitle={<><span>Strategy,</span><br/>Implement,<br/>Operate</>}
+        services={services}
+        polygonImage={servicePolygonImg}
+        lineSvg={<Line1 width={800} height={800} />} 
+      />
+      {/* <section className="guiding-principles">
+        <Image
+          src={servicePolygonImg}
+          className="service-polygon-bg"
+          alt="Service Polygone Picture"
+        />
+        <div className="container">
+          <div className="column">
+            <h2 className="heading">Services</h2>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+          </div>
+          <div className="column">
+            <h1 className="main-left-heading">
+              Strategy, <br />
+              Implement,<br />
+              Operate</h1>
+          </div>
+          <div className="column">
+            <div className="service-box">
+              <h2 className="service-title">
+                <div className="dot"></div>
+                <div className="label">Strategy</div>
+              </h2>
+              <p className="service-para">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+              </p>
+            </div>
+            <div className="service-box">
+              <h2 className="service-title">
+                <div className="dot"></div>
+                <div className="label">Platform</div>
+              </h2>
+              <p className="service-para">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+              </p>
+            </div>
+            <div className="service-box">
+              <h2 className="service-title">
+                <div className="dot"></div>
+                <div className="label">Product</div>
+              </h2>
+              <p className="service-para">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+              </p>
+            </div>
+            <div className="service-box">
+              <h2 className="service-title">
+                <div className="dot"></div>
+                <div className="label">Organization</div>
+              </h2>
+              <p className="service-para">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+              </p>
+            </div>
+            <div className="service-box">
+              <h2 className="service-title">
+                <div className="dot"></div>
+                <div className="label">Operate</div>
+              </h2>
+              <p className="service-para">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="background">
+         <Line1 width={50} height={50} />
+        </div>
+      </section> */}
+
+      {/* Solutions & Offerings */}
+      <section className="solution-offering">
+        <div className="container">
+          <div className="column">
+            <h1 className="solu-offer-title">Solutions & Offerings</h1>
+            <p className="solu-offer-para">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
+
+            <div className="solu-gradient-box">
+              <div className="o-rimlight"></div>
+               <span className="solu-hex" aria-hidden="true" />
+              <Image 
+                src={soluCardRightImg}
+                className="solu-card-right-img"
+                alt="Solution Card Right Image"
+              />
+              <h3 className="solu-card-main-title">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </h3>
+              <div className="solu-main-card-img">
+                <Image 
+                  src={soluCardImg1}
+                  className="solu-card-img"
+                  alt="Solution Card Image"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="column">
+            <div className="solu-gradient-box-2">
+              <div className="o-rimlight"></div>
+              <div className="solu-card-title-wrapper">
+                <h3 className="solu-card-main-title-2">Lorem Ipsum</h3>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
+              </div>
+              <div className="solu-main-card-img-2">
+                <Image 
+                  src={soluCardImg2}
+                  className="solu-card-img-2"
+                  alt="Solution Card Image"
+                />
+              </div>
+            </div>
+            <div className="solu-gradient-box-3">
+              <div className="o-rimlight"></div>
+              <Image 
+                src={soluCardRightImg}
+                className="solu-card-right-img-3"
+                alt="Solution Card Right Image"
+              />
+              <h3 className="solu-card-main--3">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </h3>
+              <div className="solu-main-card-img-3">
+                <Image 
+                  src={soluCardImg3}
+                  className="solu-card-img-3"
+                  alt="Solution Card Image"
+                />
+              </div>
+              <Image
+                src={soluCardsubImg3}
+                className="solu-card-sub-img-3"
+                alt="Solution Card Sub Img 3"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Industries We Serve */}
+      <IndustriesSection />
+      {/* <section className="industries">
+        <div className="container">
+          <h1>Industries We Serve</h1>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p> 
+          <div className="inuds-polygon-wrapper">
+            <div className="industrie-polygon-wrapper">
+            <div className="industrie-polygon-box">
+              <button>
+                <label className="indus-box">Oil Gas</label>
+                <i className="indus-plus">+</i>
+                <PolygonLogo />
+              </button>
+              <div className="hover"></div>
+            </div>
+            <div className="industrie-polygon-box">
+              <button>
+                <label className="indus-box">Powerful & Utilities</label>
+                <i className="indus-plus">+</i>
+                <PolygonLogo />
+              </button>
+              <div className="hover"></div>
+            </div>
+            <div className="industrie-polygon-box">
+              <button>
+                <label className="indus-box">Mining & Minerals</label>
+                <i className="indus-plus">+</i>
+                <PolygonLogo />
+              </button>
+              <div className="hover"></div>
+            </div>
+          </div>
+          <div className="industrie-polygon-wrapper">
+            <div className="industrie-polygon-box">
+              <button>
+                <label className="indus-box">Manufacturing</label>
+                <i className="indus-plus">+</i>
+                <PolygonLogo />
+              </button>
+              <div className="hover"></div>
+            </div>
+            <div className="industrie-polygon-box">
+              <button>
+                <label className="indus-box">Chemicals</label>
+                <i className="indus-plus">+</i>
+                <PolygonLogo />
+              </button>
+              <div className="hover"></div>
+            </div>
+          </div>
+          <div className="industrie-polygon-wrapper">
+            <div className="industrie-polygon-box">
+              <button>
+                <label className="indus-box">Renewables</label>
+                <i className="indus-plus">+</i>
+                <PolygonLogo />
+              </button>
+              <div className="hover"></div>
+            </div>
+          </div>
+          </div>
+          <div className="update-box-wrapper">
+          <div className="column">
+            <Image
+              src={keyUpdateImg}
+              className="key-update-img"
+              alt="Key Update Img"
+            />
+          </div>
+          <div className="column">
+            <h2>key Updates/ highlights</h2>
+            <div className="update-box-head-tag">
+              <div className="dot"></div>
+              <label>Lorem Ipsum</label>
+            </div>
+            <p className="update-box-head-para">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            <a href="/" className="update-box-btn">
+              <div className="dot"></div> 
+              Start Your Journey
+            </a>
+          </div>
+        </div>
+        </div>
+      </section> */}
+    </>
   );
 }
