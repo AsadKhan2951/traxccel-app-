@@ -31,9 +31,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={montserrat.variable}>
       <body className="antialiased">
         {/* <BgWebGL /> */}
-        <LottieAnimation
+        {/* <LottieAnimation
           url="https://lottie.host/embed/4c253762-db2f-45d1-9fef-27e1e1a6cad4/oj1cEcpZuT.lottie"
-        />
+        /> */}
         <GlobalPolygonBG src={polygonImg} rotateSpeed={5.5} pathPx={260} />
         <SplashIntro /> 
         <FancyCursor />
