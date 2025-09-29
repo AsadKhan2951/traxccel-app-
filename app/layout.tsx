@@ -3,7 +3,7 @@ import { Montserrat } from 'next/font/google';
 import './globals.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import ScrollProvider from './components/AnimationComponent/ScrollProvider';
+// import ScrollProvider from './components/AnimationComponent/ScrollProvider';
 import FancyCursor from './components/AnimationComponent/FancyCursor';
 import SplashIntro from './components/AnimationComponent/SplashIntro';
 import GlobalPolygonBG from './components/AnimationComponent/PolygonBg';
@@ -37,7 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <GlobalPolygonBG src={polygonImg} rotateSpeed={5.5} pathPx={260} />
         <SplashIntro /> 
         <FancyCursor />
-        <ScrollProvider />
+        {/* <ScrollProvider /> */}
         <Header />
         <main className="">{children}</main>
         <Footer />
