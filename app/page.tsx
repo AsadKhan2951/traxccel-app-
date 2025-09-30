@@ -1,13 +1,11 @@
 import Image from 'next/image'
 import ExpandingSlider from './components/AnimationComponent/ExpandingSlider';
-import PinnedTestimonials from "./components/AnimationComponent/TestimonialSlider";
 import ServiceSection, { ServiceItem } from './components/AnimationComponent/ServiceSection';
 import IndustriesSection from './components/AnimationComponent/IndustriesSection';
 import nvidaLogo from './assets/Images/nvidia-logo.png';
 import azureLogo from './assets/Images/azure-logo.png';
 import informaticLogo from './assets/Images/informatic-logo.png';
 import pathLogo from './assets/Images/path-logo.png';
-import certificationLogo from './assets/Images/certification-logo.png';
 import testimonialProfile from './assets/Images/testimonial-profile.png';
 import Line1 from "./assets/Images/generated-svg-image.svg";
 import servicePolygonImg from "./assets/Images/service-polygon.png";
@@ -16,12 +14,9 @@ import soluCardImg1 from "./assets/Images/solution-box-img-1.png";
 import soluCardImg2 from "./assets/Images/solution-box-img-2.png";
 import soluCardImg3 from "./assets/Images/solution-box-img-3.png";
 import soluCardsubImg3 from "./assets/Images/solution-box-sub-img-3.png";
-import PolygonLogo from "./assets/Images/polygon-card.svg";
-import keyUpdateImg from "./assets/Images/key-update-img.png";
 import SectionReveal from "./components/AnimationComponent/SectionReveal";
 import BlurText from "./components/AnimationComponent/BlurText";
 import BlurSlideBottomText from "./components/AnimationComponent/BlurSlideBottomText";
-import dynamic from 'next/dynamic';
 
 const testimonials = [
   { name: 'Janak Bhanushali', role: 'Founder & CEO', quote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec laoreet felis quis mi elementum auctor. Proin id nunc id ipsum luctus hendrerit a sed ipsum. Suspendisse neque tellus', photo: testimonialProfile },
@@ -217,8 +212,8 @@ export default function HomePage() {
       <section className="solution-offering">
         <div className="container">
           <div className="column">
-            <h1 className="solu-offer-title">Solutions & Offerings</h1>
-            <p className="solu-offer-para">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
+            <BlurText as="h1" split="words" stagger={40} blurAmount={14} yOffset={18} duration={800} className="solu-offer-title">Solutions & Offerings</BlurText>
+            <BlurText as="p" split="chars" stagger={12} blurAmount={10} yOffset={5} duration={2000} className="solu-offer-para">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</BlurText>
 
             <div className="solu-gradient-box">
               <div className="o-rimlight"></div>

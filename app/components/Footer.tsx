@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image'
 import mainLogo from '../assets/Images/main-logo.png';
 import socialLink from '../assets/Images/social-link-footer.png';
+import BlurText from './AnimationComponent/BlurText';
 
 const nav = [
   { label: 'About', href: '/about' },
@@ -16,8 +17,8 @@ export default function Footer() {
     <footer className="footer">
      <div className="container">
         <div className="footer-top">
-          <p>Get in Touch</p>
-          <h1>Consult  with Traxccel</h1>
+          <BlurText as="p" split="chars" stagger={12} blurAmount={10} yOffset={5} duration={1000}>Get in Touch</BlurText>
+          <BlurText as="h1" split="words" stagger={40} blurAmount={14} yOffset={18} duration={800}>Consult  with Traxccel</BlurText>
           <a href="/contact">Contact Us</a>
         </div>
         <div className="footer-bottom">

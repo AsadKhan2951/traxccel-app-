@@ -23,7 +23,7 @@ body {
   background: radial-gradient(124.01% 584.99% at 114.09% 49.7%, #020608 0%, #1E4D6A 52.4%, #020608 100%);
   color: var(--foreground);
   font-family: var(--font-montserrat), ui-sans-serif, system-ui;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 /* Blur Effect Animation Start  */
