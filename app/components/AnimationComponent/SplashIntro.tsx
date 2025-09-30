@@ -30,7 +30,7 @@ export default function SplashIntro() {
       const len = 2 * Math.PI * r;
       c.style.strokeDasharray = `${len}`;
       c.style.strokeDashoffset = `${len}`;
-      (c as any).style.setProperty('--dly', `${i * 90}ms`);
+      c.style.setProperty('--dly', `${i * 90}ms`);
     });
     // also prepare ENTER ring draw
     const ring = root.querySelector<SVGCircleElement>('.circle-svg .ring');

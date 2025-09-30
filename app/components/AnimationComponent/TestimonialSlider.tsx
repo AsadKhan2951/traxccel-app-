@@ -1,17 +1,18 @@
 'use client';
 
 import Image from 'next/image';
+import type { StaticImageData } from "next/image";
 import { useEffect, useRef, useState } from 'react';
 
 type Testimonial = {
   name: string;
   role: string;
   quote: string;
-  photo: any; // Next/Image static import
+  photo: StaticImageData | string;
 };
 
 type Props = {
-  certificationLogo: any;         // Next/Image static import
+  certificationLogo: StaticImageData | string;        // Next/Image static import
   logosCount?: number;            // default 5
   testimonials: Testimonial[];    // 3–4 items recommended
 };

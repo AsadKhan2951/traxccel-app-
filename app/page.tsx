@@ -17,6 +17,8 @@ import soluCardsubImg3 from "./assets/Images/solution-box-sub-img-3.png";
 import SectionReveal from "./components/AnimationComponent/SectionReveal";
 import BlurText from "./components/AnimationComponent/BlurText";
 import BlurSlideBottomText from "./components/AnimationComponent/BlurSlideBottomText";
+import dynamic from 'next/dynamic';
+import Link from "next/link";
 
 const testimonials = [
   { name: 'Janak Bhanushali', role: 'Founder & CEO', quote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec laoreet felis quis mi elementum auctor. Proin id nunc id ipsum luctus hendrerit a sed ipsum. Suspendisse neque tellus', photo: testimonialProfile },
@@ -43,9 +45,9 @@ export default function HomePage() {
               <div>data+AI value chain for</div>
               <div>operational efficiencies</div>
             </BlurText>
-            <a href="/" className="main-hero-btn">
+            <Link href="/" className="main-hero-btn">
               <div className="dot"></div> Start Your Journey
-            </a>
+            </Link>
           </div>
         </div>
         <div className="sub-container">
@@ -212,8 +214,8 @@ export default function HomePage() {
       <section className="solution-offering">
         <div className="container">
           <div className="column">
-            <BlurText as="h1" split="words" stagger={40} blurAmount={14} yOffset={18} duration={800} className="solu-offer-title">Solutions & Offerings</BlurText>
-            <BlurText as="p" split="chars" stagger={12} blurAmount={10} yOffset={5} duration={2000} className="solu-offer-para">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</BlurText>
+            <h1 className="solu-offer-title">Solutions & Offerings</h1>
+            <p className="solu-offer-para">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, </p>
 
             <div className="solu-gradient-box">
               <div className="o-rimlight"></div>
