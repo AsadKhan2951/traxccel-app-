@@ -45,12 +45,10 @@ export default function BlurBlock({
     <div
       ref={ref}
       className={`blur-block ${inView ? 'is-in' : hasPlayed ? '' : ''} ${className}`}
-      style={
-        {
-          ['--y' as any]: `${yOffset}px`,
-          ['--dur' as any]: `${duration}ms`,
-        } as React.CSSProperties
-      }
+      style={{
+        '--y': `${yOffset}px`,
+        '--dur': `${duration}ms`,
+      } as React.CSSProperties & Record<string, string>}
     >
       {children}
     </div>

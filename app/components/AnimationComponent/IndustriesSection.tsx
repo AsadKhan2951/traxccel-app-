@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useEffect, useRef } from "react";
-import Image from "next/image";
+import {useEffect, useRef } from "react";
+import Link from "next/link";
 import PolygonLogo from '@/app/assets/Images/polygon-card.svg';
 import keyUpdateImg from '@/app/assets/Images/key-update-img.png'; 
 import BlurText from "./BlurText";
@@ -141,9 +141,9 @@ const IndustriesSection = () => {
               <label>Lorem Ipsum</label>
             </div>
             <BlurText as="p" split="chars" stagger={12} blurAmount={10} yOffset={5} duration={2000} className="update-box-head-para">Lorem Ipsum is simply dummy text of the printing and typesetting industry...</BlurText>
-            <a href="/" className="update-box-btn">
+            <Link href="/" className="update-box-btn">
               <div className="dot"></div> Start Your Journey
-            </a>
+            </Link>
           </div>
         </div>
       </div>
