@@ -94,7 +94,6 @@ export default function SplashIntro() {
         </div>
         <span className="sr-only">Enter site</span>
         </button>
-
       </div>
     </div>
   );
